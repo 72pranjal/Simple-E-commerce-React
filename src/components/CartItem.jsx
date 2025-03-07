@@ -30,7 +30,7 @@ const CartItem = ({ cartItems, setCartItems }) => {
               </li>
             ))
           ) : (
-            <p>No items in the cart</p>
+            <p className="no-items">No items in the cart</p>
           )}
         </ul>
 

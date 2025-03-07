@@ -3,17 +3,20 @@ import './App.css'
 import Category from './components/Category'
 import productCategory from './components/productCategory'
 import CartItem from './components/CartItem'
+import Header from './components/Header'
 
 function App() {
   const category = productCategory()
+  const [activeCat, setActiveCat] = useState(`men's clothing`)
   const [cartItems, setCartItems] = useState([])
   console.log("cartItems", cartItems)
   return (
     <div className='main-container'>
       <div className='category-list'>
-        {category.map((value, index) => (
-          <Category key={index} productCategory={value} cartItems={cartItems} setCartItems={setCartItems} />
-        ))}
+        <Header category={category} activeCat={activeCat} setActiveCat={setActiveCat} />
+        {/* {category.map((value, index) => ( */}
+          <Category productCategory={activeCat} cartItems={cartItems} setCartItems={setCartItems} />
+        {/* ))} */}
       </div>
       <CartItem cartItems={cartItems} setCartItems={setCartItems} />
     </div>
